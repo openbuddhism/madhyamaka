@@ -7,9 +7,33 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
   <title>Chat</title>
+
+<!-- json 읽고 쓰기 -->
+<script> 
+    $(document).ready(function() { 
+      $.getJSON('../data/chapter-1.json', function(data) { 
+        var html = null;
+        var html = []; 
+      $.each(data, function(i, item) { 
+        html.push('<div >'); 
+        html.push('<h3 >' + item.firstName + '</h3>'); 
+        html.push('<div >' + item.lastName + '</div>');
+        html.push('<div >' + item.age + '</div>'); 
+        html.push('<div >' + item.address.streetAddress + '</div>'); 
+        html.push('<div >' + item.phoneNumber[0].type + '</div>'); 
+        html.push('</div>'); html.push('</div>'); 
+      }); 
+        console.log(html); 
+        $('#target').html(html.join('')); 
+      }); 
+    }); 
+</script>  
+
 </head>
 <body class="body-chat">
+    <div id="target" />
   <header class="top-header chat-header">
     <div class="header__top">
       <div class="header__column">
