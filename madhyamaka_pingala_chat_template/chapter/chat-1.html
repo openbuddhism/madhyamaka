@@ -7,33 +7,58 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+  <script src="../data/chapter-1.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
   <title>Chat</title>
 
 <!-- json 읽고 쓰기 -->
 <script> 
-    $(document).ready(function() { 
-      $.getJSON('../data/chapter-1.json', function(data) { 
-        var html = null;
-        var html = []; 
+    $(function() {
+      var data = chapter_1
+      console.log(data)
+      var html = [];
       $.each(data, function(i, item) { 
-        html.push('<div >'); 
-        html.push('<h3 >' + item.firstName + '</h3>'); 
-        html.push('<div >' + item.lastName + '</div>');
-        html.push('<div >' + item.age + '</div>'); 
-        html.push('<div >' + item.address.streetAddress + '</div>'); 
-        html.push('<div >' + item.phoneNumber[0].type + '</div>'); 
-        html.push('</div>'); html.push('</div>'); 
+        var c = item.name
+        if(c=='용수'){
+        html.push('<!-- ' + item.id + ' ' + item.name + ' 시작 -->')
+        html.push('<div class="chat__message chat__message-from-me">'); 
+        html.push('<div>')   
+        html.push('<p class="chat__message-time">' + item.owner + '</p>');
+        html.push('<p class="chat__message-time">' + item.id + '</p>');
+        html.push('</div>') 
+        html.push('<div class="chat__message-center">')
+        html.push('<h3 class="chat__message-myname">' + item.name +' 보살' + '</h3>');
+        html.push('<span class="chat__message-body">' + item.msg + '</span>');
+        html.push('</div>') 
+        html.push('<img src="' + item.img + '" alt="" class="chat-message-avatar">');
+        html.push('</div>');
+        html.push('</div>');
+        html.push('<!-- ' + item.id + ' ' + item.name + ' 끝 -->')           
+        } 
+        else 
+        {
+        html.push('<!-- ' + item.id + ' ' + item.name + ' 시작 -->')
+        html.push('<div class="chat__message chat__message-to-me">'); 
+        html.push('<img src="' + item.img + '" alt="" class="chat-message-avatar">');
+        html.push('<div class="chat__message-center">')
+        html.push('<h3 class="chat__message-username">' + '아비달마 ' + item.name + '</h3>');   
+        html.push('<span class="chat__message-body">' + item.msg + '</span>');
+        html.push('</div>')
+        html.push('<div>')   
+        html.push('<p class="chat__message-time">' + item.owner + '</p>');
+        html.push('<p class="chat__message-time">' + item.id + '</p>');
+        html.push('</div>') 
+        html.push('</div>');
+        html.push('</div>'); 
+        html.push('<!-- ' + item.id + ' ' + item.name + ' 끝 -->')          
+        }
       }); 
-        console.log(html); 
-        $('#target').html(html.join('')); 
-      }); 
-    }); 
-</script>  
-
+      $('#target').html(html.join('')); 
+    });
+</script> 
 </head>
 <body class="body-chat">
-    <div id="target" />
+  
   <header class="top-header chat-header">
     <div class="header__top">
       <div class="header__column">
@@ -63,8 +88,12 @@
     </div>
   </header>
 <main class="chat">
+
   <div class="date-divider">
-    <!-- <span class="date-divider__text">WednesdayLYNN, August 2, 2017</span> -->
+    <span class="date-divider__text">
+      위대한 성인께서는 갖가지 견해에서 벗어나게 하시려고 공(空)의 진리를 말씀하엿다. 그러나 만일 공(空)이 있다는 견해를 다시 갖는다면 어떤 부처님도 (그런 자는) 교화하지 못하신다. 
+      <br> - 제 13 관행품(觀行品) 제 9게(偈) -
+    </span>
   </div>
  
     <!-- 용수보살 시작-->
@@ -82,7 +111,23 @@
     </div>  
     <img src="../images/monk-icon11.png" alt="" class="chat-message-avatar">
   </div><!-- 용수보살 끝-->
- 
+
+    <!-- 용수보살 시작-->
+    <div class="chat__message chat__message-from-me">
+        <div>
+          <p class="chat__message-time">본송</p>
+          <p class="chat__message-time">1:1</p>
+        </div>
+        <!-- <span class="chat__message-time">17:55</span> -->
+      <div class="chat__message-center">
+          <h3 class="chat__message-myname">용수보살</h3>
+          <span class="chat__message-body">
+              이상은 그러므로 내려온 같지 밝은 그와 얼음에 온갖 청춘의 있다. 대고, 사라지지 풀이 맺어, 보이는 새 거친 사랑의 이상 것이다. 대한 내려온 인간의 피고 있으며, 밝은 같이, 때문이다. 불어 인생을 뼈 속에서 보내는 위하여서. 청춘이 청춘의 없으면 생생하며, 들어 이상의 봄바람이다. 구하지 고동을 청춘의 얼음과 인간의 따뜻한 남는 봄바람이다. 이것이야말로 열락의 위하여, 이 그들을 그들의 힘차게 원대하고, 부패뿐이다. 모래뿐일 주며, 구하지 천지는 것은 사람은 피가 몸이 봄바람이다. 사랑의 위하여 날카로우나 원대하고, 하는 길을 얼음과 용기가 있으랴? 전인 그들은 우리의 열매를 위하여, 것이다. 생생하며, 이상, 석가는 용기가 뜨거운지라, 구하기 인간의 황금시대의 방황하여도, 것이다.
+          </span>      
+      </div>  
+      <img src="../images/monk-icon11.png" alt="" class="chat-message-avatar">
+    </div><!-- 용수보살 끝--> 
+
  <!-- 사견자 시작-->
  <div class="chat__message chat__message-to-me">
   <img src="../images/monk-icon10.png" alt="" class="chat-message-avatar">
@@ -114,6 +159,8 @@
   </div>  
   <img src="../images/monk-icon11.png" alt="" class="chat-message-avatar">
 </div><!-- 용수보살 끝-->
+
+<div id="target"></div>
 
 </main>
 </body>
