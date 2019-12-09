@@ -18,18 +18,22 @@
   padding-top: 15px;
   padding-left: 5px;
   padding-right: 5px;
-  padding-bottom: 50px;
+  padding-bottom: 40%;
   height: 150%;
 }
 
 .chat .date-divider {
   text-align: center;
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.5);
+  /* color: rgba(0, 0, 0, 0.5); */
   margin-bottom: 15px;
   max-width: 80%;
   margin-left: 10%;
   line-height: 1.5em;
+  background-color: #83acc9;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #ffff;
 }
 
 .chat__message {
