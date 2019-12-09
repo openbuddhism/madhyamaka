@@ -19,48 +19,55 @@
       var html = [];
       $.each(data, function(i, item) { 
         var c = item.name
+        var f = item.footnote
+
         if(c=='중관'){
         var face_1 ='../images/monk-icon11.png'; 
         item.img = face_1;
-        html.push('<!-- ' + item.id + ' ' + item.name + ' 시작 -->')
+        html.push('<!-- ' + item.id + ' ' + item.name + ' 시작 -->');
         html.push('<div class="chat__message chat__message-from-me">'); 
-        html.push('<div>')   
-        html.push('<p class="chat__message-time">' + item.text + '</p>');
-        html.push('<p class="chat__message-time">' + item.id + '</p>');
-        html.push('</div>') 
         html.push('<div class="chat__message-center">')
         html.push('<h3 class="chat__message-myname">' + item.name +' 논사' + '</h3>');
+        html.push('<p class="chat__message-time left">' + item.text + ' : ' + item.id + '</p>');
         html.push('<span class="chat__message-body">' + item.msg + '</span>');
-        html.push('</div>') 
+        if(f!=null){  
+        html.push('<details>'); 
+        html.push('<summary><i class="footnote fa fa-bell" aria-hidden="true"></i></summary>');
+        html.push('<p>' + item.footnote + '</p>'); 
+        html.push('</details>');   
+        }
+        html.push('</div>'); 
         html.push('<img src="' + item.img + '" alt="" class="chat-message-avatar">');
         html.push('</div>');
-        html.push('</div>');
-        html.push('<!-- ' + item.id + ' ' + item.name + ' 끝 -->')           
-        } 
+        html.push('<!-- ' + item.id + ' ' + item.name + ' 끝 -->');           
+        }
         else 
         {
         var face_2 ='../images/monk-icon10.png';  
         item.img = face_2;
-        html.push('<!-- ' + item.id + ' ' + item.name + ' 시작 -->')
+        html.push('<!-- ' + item.id + ' ' + item.name + ' 시작 -->');
         html.push('<div class="chat__message chat__message-to-me">'); 
         html.push('<img src="' + item.img + '" alt="" class="chat-message-avatar">');
-        html.push('<div class="chat__message-center">')
-        html.push('<h3 class="chat__message-username">' + item.name  +' 논사' + '</h3>');   
+        html.push('<div class="chat__message-center">');
+        html.push('<h3 class="chat__message-username">' + item.name  +' 논사' + '</h3>'); 
+        html.push('<p class="chat__message-time right">' + item.text + ' : ' + item.id + '</p>');
         html.push('<span class="chat__message-body">' + item.msg + '</span>');
-        html.push('</div>')
-        html.push('<div>')   
-        html.push('<p class="chat__message-time">' + item.text + '</p>');
-        html.push('<p class="chat__message-time">' + item.id + '</p>');
-        html.push('</div>') 
-        html.push('</div>');
+        if(f!=null){
+        html.push('<details>'); 
+        html.push('<summary><i class="footnote fa fa-bell" aria-hidden="true"></i></summary>');
+        html.push('<p>' + item.footnote + '</p>'); 
+        html.push('</details>'); 
+        }
         html.push('</div>'); 
-        html.push('<!-- ' + item.id + ' ' + item.name + ' 끝 -->')          
+        html.push('</div>'); 
+        html.push('<!-- ' + item.id + ' ' + item.name + ' 끝 -->');          
         }
       }); 
       $('#target').html(html.join('')); 
     });
 </script> 
 </head>
+
 <body class="body-chat">
   
   <header class="top-header chat-header">
@@ -102,6 +109,10 @@
 
 <span id="target"></span>
 
+
+
 </main>
 </body>
 </html>
+
+
