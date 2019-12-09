@@ -23,6 +23,9 @@
   margin-right: 15px;
   /* animation: 1s rotateFriend infinite ease-in-out; */
 }
+.friends__section-title{
+ line-height: 1.5em;
+}
 
 @keyframes rotateFriend {
   0% {
@@ -47,11 +50,12 @@
 }
 
 .friends__section-tagline {
-  max-width: 50%;
+  max-width: 40%;
   line-height: 1.5em;
   font-size: 10px;
   background: #f0f0f0;
   padding: 10px 10px;
   border-radius: 5px;
   color: #c4c4c4;
+  margin-left: 10px;
 }
