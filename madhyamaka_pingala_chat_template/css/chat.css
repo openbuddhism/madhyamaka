@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Source+Sans+Pro:300,400,600");
+
 .body-chat {
   padding-bottom: 0;
 }
@@ -72,9 +74,12 @@
   border-radius: 5px;
   background-color: #ffe934;
   margin-right: 5px;
-  line-height: 1.5em;
+  line-height: 1.6em;
   font-weight: 200;
   font-family: sans-serif;
+  color: #34495e;
+  word-spacing: .05rem;
+  font-size: 15px;
 }
 
 .chat__message-to-me img {
@@ -149,11 +154,12 @@
 details {
   border-radius: 15px;
   padding: 10px 10px;
-  line-height: 1.4em;
+  line-height: 1.6em;
   font-weight: 200;
-  outline:none;
+  outline: none;
   font-size: 15px;
   color: rgba(0, 0, 0, 0.5);
+  word-spacing: .05rem;
 }
 details summary::-webkit-details-marker {
   display:none;
